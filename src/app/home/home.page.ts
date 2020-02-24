@@ -21,7 +21,11 @@ export class HomePage {
   }
 
   textToSpeech(text) {
-    this.tts.speak(text)
+    this.tts.speak({
+      text: text,
+      locale: 'en-US',
+      rate: 1.5
+     })
       .then(() => console.log('Success'))
       .catch((reason: any) => console.log(reason));
   }
