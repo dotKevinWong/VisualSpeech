@@ -11,7 +11,7 @@ export class HomePage {
 
   words: Word[];
  
-  constructor( private firebaseService: FirebaseService,
+  constructor(private firebaseService: FirebaseService,
     private tts: TextToSpeech) { }
     
   /* 

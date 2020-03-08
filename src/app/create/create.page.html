@@ -1,9 +1,18 @@
-<ion-header>
+<ion-header *ngIf="!word.id">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button default="/"></ion-back-button>
     </ion-buttons>
     <ion-title>Create Word</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header *ngIf="word.id">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Word</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -26,4 +35,21 @@
       Add Word
     </ion-button>
   </ion-toolbar>
+</ion-footer>
+
+<ion-footer *ngIf="word.id">
+  <ion-row no-padding text-center>
+    <ion-col size="6">
+      <ion-button expand="block" fill="outline" color="danger" (click)="deleteWord()">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Delete
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button expand="block" fill="outline" color="success" (click)="updateWord()">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Edit
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-footer>

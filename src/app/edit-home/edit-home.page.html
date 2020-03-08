@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit: Home Screen</ion-title>
+    <ion-button slot="secondary" routerLink="/create">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-col *ngFor="let word of words">
+    <ion-button size="large" [routerLink]="['/create', word.id]">
+      {{word.name}}
+      <br>
+      {{word.icon}}
+    </ion-button>
+  </ion-col>
+</ion-content>
