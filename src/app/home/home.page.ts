@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { Word, FirebaseService } from 'src/app/services/firebase.service'
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,32 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 })
 export class HomePage {
 
-  text_sentences = [];
+  words: Word[];
  
-  constructor(
-    private tts: TextToSpeech
-  ) {
-    this.text_sentences = [
-      "There is no such thing as fun for the whole family",
-      "If you can't have fun, there's no sense in doing it.",
-      "Stand up for what is right, regardless of who is committing the wrong."
-    ]
+  constructor( private firebaseService: FirebaseService,
+    private tts: TextToSpeech) { }
+    
+  /* 
+  OnInit, subscribe to Firebase function getWords()
+  and return an array of words from Firebase Firestore  
+  */
+
+  ngOnInit() {
+    this.firebaseService.getWords().subscribe( words => {
+      this.words = words;
+    });
   }
 
+  /* 
+  Function: textToSpeech(param: text)
+  
+  Call this TTS function with a parameter
+  of "text."
+
+  Example:
+  sentence = "This is a sentence" 
+  textToSpeech(sentence) = "This is a sentence"
+  */
   textToSpeech(text) {
     this.tts.speak({
       text: text,
@@ -27,6 +42,6 @@ export class HomePage {
       rate: 1.5
      })
       .then(() => console.log('Success'))
-      .catch((reason: any) => console.log(reason));
+      .catch((reason: any) => console.log(reason + ". App is saying: " + text));
   }
 }

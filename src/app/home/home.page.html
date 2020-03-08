@@ -1,19 +1,35 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic 4 Text to Speech
+      VisualSpeech
     </ion-title>
+    <ion-button slot="secondary" routerLink="/create">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-col *ngFor="let word of words">
+    <ion-button size="large" (click)="textToSpeech(word.name)">
+      {{word.name}}
+      <br>
+      {{word.icon}}
+    </ion-button>
+  </ion-col>
+</ion-content>
+
+<!---
 <ion-content>
   <ion-list>
-    <ion-item-sliding *ngFor="let item of text_sentences">
+    <ion-item-sliding *ngFor="let word of words">
       <ion-item>
-        <ion-label text-wrap>{{item}}</ion-label>
+        <ion-label text-wrap>{{ word.name }} {{ word.icon }}</ion-label>
       </ion-item>
       <ion-item-options side="end">
-        <ion-item-option (click)="textToSpeech(item)">Speak</ion-item-option>
+        <ion-item-option (click)="textToSpeech(word.name)">Speak</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
 </ion-content>
+-->
