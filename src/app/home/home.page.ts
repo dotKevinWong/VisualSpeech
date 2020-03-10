@@ -35,6 +35,7 @@ export class HomePage {
   sentence = "This is a sentence" 
   textToSpeech(sentence) = "This is a sentence"
   */
+ 
   textToSpeech(text) {
     this.tts.speak({
       text: text,
