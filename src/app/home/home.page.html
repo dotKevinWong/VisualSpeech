@@ -13,11 +13,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-col *ngFor="let word of words">
-    <ion-button size="large" (click)="textToSpeech(word.name)">
-      {{word.name}}
-      <br>
-      {{word.icon}}
-    </ion-button>
-  </ion-col>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="text-align: center;">
+        <ion-button style="width: 15%;" *ngFor="let word of words" size="large" (click)="textToSpeech(word.name)">
+          {{word.name}}
+          <br>
+          {{word.icon}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
