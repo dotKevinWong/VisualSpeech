@@ -15,8 +15,8 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col style="text-align: center;">
-        <ion-button style="width: 15%;" *ngFor="let word of words" size="large" (click)="textToSpeech(word.name)">
+      <ion-col>
+        <ion-button *ngFor="let word of words" size="large" (click)="textToSpeech(word.name)">
           {{word.name}}
           <br>
           {{word.icon}}
