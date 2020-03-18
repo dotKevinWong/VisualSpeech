@@ -10,16 +10,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col style="text-align: center;">
-        <ion-button style="width: 15%;" *ngFor="let word of words" size="large" [routerLink]="['/create', word.id]">
-          {{word.name}}
-          <br>
-          {{word.icon}}
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content fullscreen>
+  <div class="container">
+    <ion-button *ngFor="let word of words" size="large" [routerLink]="['/create', word.id]">
+      {{word.name}}
+      <br>
+      {{word.icon}}
+    </ion-button>
+  </div>
 </ion-content>

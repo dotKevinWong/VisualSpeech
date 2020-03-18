@@ -12,16 +12,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button *ngFor="let word of words" size="large" (click)="textToSpeech(word.name)">
-          {{word.name}}
-          <br>
-          {{word.icon}}
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content fullscreen>
+  <div class="container">
+    <ion-button *ngFor="let word of words" size="large" (click)="textToSpeech(word.name)">
+      {{word.name}}
+      <br>
+      {{word.icon}}
+    </ion-button>
+  </div>
 </ion-content>
