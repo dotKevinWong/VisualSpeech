@@ -1,7 +1,0 @@
-{
-  "name": "VisualSpeech",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
