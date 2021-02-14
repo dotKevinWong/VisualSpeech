@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { Platform } from '@ionic/angular';
 import { Word, FirebaseService } from 'src/app/services/firebase.service'
 
 @Component({
@@ -12,7 +13,8 @@ export class HomePage {
   words: Word[];
  
   constructor(private firebaseService: FirebaseService,
-    private tts: TextToSpeech) { }
+    private tts: TextToSpeech, public platform: Platform) {
+    }
     
   /* 
   OnInit, subscribe to Firebase function getWords()
@@ -25,24 +27,37 @@ export class HomePage {
     });
   }
 
-  /* 
-  Function: textToSpeech(param: text)
-  
-  Call this TTS function with a parameter
-  of "text."
+    /* 
+    Function: textToSpeech(param: text)
+    
+    Call this TTS function with a parameter
+    of "text"
 
-  Example:
-  sentence = "This is a sentence" 
-  textToSpeech(sentence) = "This is a sentence"
-  */
- 
-  textToSpeech(text) {
-    this.tts.speak({
-      text: text,
-      locale: 'en-US',
-      rate: 1.5
-     })
-      .then(() => console.log('Success'))
-      .catch((reason: any) => console.log(reason + ". App is saying: " + text));
+    Example:
+    text = "This is a sentence"
+    textToSpeech(text)
+    [Application]: "This is a sentence"
+    */
+    textToSpeech(text) {
+      if(this.platform.is('cordova')) {
+        /* 
+        Uses Cordova Text-to-Speech Plugin. Works with iOS & Android
+        */
+        this.tts.speak({
+          text: text,
+          locale: 'en-US',
+          rate: 1.5
+        })
+          .then(() => console.log('Success'))
+          .catch((reason: any) => console.log(reason + ". App is saying: " + text));
+      } else {
+        /* 
+        Uses HTML5 SpeechSynthesis API
+        https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+        */
+        const utter = new SpeechSynthesisUtterance(text)
+        speechSynthesis.speak(utter);
+      }
   }
+
 }

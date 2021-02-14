@@ -1,7 +1,8 @@
 {
   "name": "VisualSpeech",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

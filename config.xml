@@ -3,7 +3,7 @@
     <name>VisualSpeech</name>
     <description>Helping the impaired speak</description>
     <author email="kmw396@drexel.edu" href="http://kevinwong.co">Kevin Wong</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://10.3.44.100:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -99,4 +99,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <allow-navigation href="http://10.3.44.100:8100" sessionid="382a8b8f" />
 </widget>
