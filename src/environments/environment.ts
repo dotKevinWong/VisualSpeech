@@ -1,13 +1,12 @@
 export const environment = {
-    production: false,
+    production: true,
     firebase: {
-        apiKey: "AIzaSyCUW3yp6wvY_ilG5DZFXm_xI4PILKnnxeU",
-        authDomain: "visualspeech-ac981.firebaseapp.com",
-        databaseURL: "https://visualspeech-ac981.firebaseio.com",
-        projectId: "visualspeech-ac981",
-        storageBucket: "visualspeech-ac981.appspot.com",
-        messagingSenderId: "364766529614",
-        appId: "1:364766529614:web:df1bfde55af16bac219b1f",
-        measurementId: "G-ZKVVFP4FBR"
+        apiKey: "AIzaSyC894Q5rL9lVVOzuyyk25cZ-Uri7M2tbaU",
+        authDomain: "visualspeech-prod.firebaseapp.com",
+        projectId: "visualspeech-prod",
+        storageBucket: "visualspeech-prod.appspot.com",
+        messagingSenderId: "265438353216",
+        appId: "1:265438353216:web:38a3f0e26f8c9384bdcca5",
+        measurementId: "G-DE8LR9Z3FF"
     }
   };
