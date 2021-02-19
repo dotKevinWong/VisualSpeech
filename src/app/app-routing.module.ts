@@ -19,7 +19,19 @@ const routes: Routes = [
   {
     path: 'edit-home',
     loadChildren: () => import('./edit-home/edit-home.module').then( m => m.EditHomePageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'forget',
+    loadChildren: () => import('./forget/forget.module').then( m => m.ForgetPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+
 ];
 
 @NgModule({

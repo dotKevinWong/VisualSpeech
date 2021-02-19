@@ -11,7 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Added Modules
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule } from '@angular/fire'; 
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
@@ -20,7 +21,8 @@ import { environment } from 'src/environments/environment';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [
     StatusBar,
