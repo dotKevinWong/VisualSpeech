@@ -3,6 +3,7 @@ import { Word, FirebaseService } from 'src/app/services/firebase.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Location } from '@angular/common';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-create',
@@ -13,11 +14,12 @@ export class CreatePage implements OnInit {
 
   word: Word = {
     name: '',
-    icon: ''
+    icon: '',
+    user: this.afAuth.auth.currentUser.uid,
   };
 
   constructor(private activatedRoute: ActivatedRoute, private firebaseService: FirebaseService,
-    private toastCtrl: ToastController, private router: Router, private location: Location) { }
+    private toastCtrl: ToastController, private router: Router, private location: Location, private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
