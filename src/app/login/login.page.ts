@@ -25,10 +25,7 @@ export class LoginPage implements OnInit {
       
       this.authObj.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then((res) => {
         console.log(res);
-
         this.router.navigateByUrl('/home');
-
-
       }).catch(e => {
         console.log(e);
       })

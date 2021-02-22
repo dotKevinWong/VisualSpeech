@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 export interface Word {
   id?: string,
   name?: string,
   icon: string,
+  user: string
 }
 
 @Injectable({
@@ -16,8 +18,8 @@ export class FirebaseService {
   private words: Observable<Word[]>;
   private wordCollection: AngularFirestoreCollection<Word>;
 
-  constructor(private afs: AngularFirestore) { 
-    this.wordCollection = this.afs.collection<Word>('words');
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {
+    this.wordCollection = this.afs.collection<Word>('words', ref => ref.where("user", "==", this.afAuth.auth.currentUser.uid));
     this.words = this.wordCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {

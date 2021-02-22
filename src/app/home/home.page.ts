@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { ActivatedRoute } from '@angular/router';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { Platform } from '@ionic/angular';
 import { Word, FirebaseService } from 'src/app/services/firebase.service'
@@ -13,7 +15,7 @@ export class HomePage {
   words: Word[];
  
   constructor(private firebaseService: FirebaseService,
-    private tts: TextToSpeech, public platform: Platform) {
+    private tts: TextToSpeech, public platform: Platform, private afAuth: AngularFireAuth, private route: ActivatedRoute) {
     }
     
   /* 
