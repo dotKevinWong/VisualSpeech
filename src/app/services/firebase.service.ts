@@ -8,6 +8,7 @@ export interface Word {
   id?: string,
   name?: string,
   icon: string,
+  photoUri: string,
   user: string
 }
 
@@ -51,7 +52,7 @@ export class FirebaseService {
   }
 
   updateWord(word: Word): Promise<void> {
-    return this.wordCollection.doc(word.id).update({ name: word.name, icon: word.icon });
+    return this.wordCollection.doc(word.id).update({ name: word.name, icon: word.icon, photo: word.photoUri });
   }
 
   deleteWord(id: string): Promise<void> {

@@ -3,7 +3,7 @@
     <name>VisualSpeech</name>
     <description>Helping the impaired speak</description>
     <author email="kmw396@drexel.edu" href="http://kevinwong.co">Kevin Wong</author>
-    <content original-src="index.html" src="http://10.3.44.100:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

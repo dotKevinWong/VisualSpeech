@@ -14,6 +14,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { AngularFireModule } from '@angular/fire'; 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 
 @NgModule({

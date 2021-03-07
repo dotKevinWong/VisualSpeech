@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { Platform } from '@ionic/angular';
 import { Word, FirebaseService } from 'src/app/services/firebase.service'
+import { Option, OptionService } from 'src/app/services/option.service';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,9 @@ import { Word, FirebaseService } from 'src/app/services/firebase.service'
 export class HomePage {
 
   words: Word[];
+  options: Option[];
  
-  constructor(private firebaseService: FirebaseService,
+  constructor(private firebaseService: FirebaseService, public optionService: OptionService,
     private tts: TextToSpeech, public platform: Platform, private afAuth: AngularFireAuth, private route: ActivatedRoute) {
     }
     
@@ -27,7 +29,13 @@ export class HomePage {
     this.firebaseService.getWords().subscribe( words => {
       this.words = words;
     });
+
+    this.optionService.getOptions().subscribe( options => {
+      this.options = options;
+    })
   }
+
+  
 
     /* 
     Function: textToSpeech(param: text)
@@ -48,7 +56,7 @@ export class HomePage {
         this.tts.speak({
           text: text,
           locale: 'en-US',
-          rate: 1.5
+          rate: 1.7
         })
           .then(() => console.log('Success'))
           .catch((reason: any) => console.log(reason + ". App is saying: " + text));

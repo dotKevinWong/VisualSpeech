@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Word, FirebaseService } from 'src/app/services/firebase.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create',
@@ -12,9 +13,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class CreatePage implements OnInit {
 
+  percentage: Observable<number>;
+  snapshot: Observable<any>;
+  downloadURL: string;
+
   word: Word = {
     name: '',
     icon: '',
+    photoUri: '',
     user: this.afAuth.auth.currentUser.uid,
   };
 
